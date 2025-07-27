@@ -1,0 +1,118 @@
+.patients-container-squelette {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 20% 80%;
+  animation: skeleton 0.3s ease-in-out infinite alternate;
+  .patients-top {
+    width: 100%;
+    height: 100%;
+    padding: 15px 15px;
+    display: flex;
+    flex-direction: column;
+    .patient-entete {
+      //   width: 100%;
+      width: 300px;
+      height: 15px;
+      border-radius: 200px;
+      background-color: rgba(95, 92, 92, 0.589);
+    }
+    .patients-nav {
+      display: grid;
+      grid-template-columns: 35% 35% 30%;
+      align-items: center;
+      .patients-link {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        a {
+          margin-right: 10px;
+          width: 90px;
+          height: 10px;
+          border-radius: 200px;
+          background-color: rgba(95, 92, 92, 0.589);
+        }
+      }
+      .patients-option {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        span {
+          width: 25px;
+          height: 25px;
+          border-radius: 100%;
+          background-color: rgba(95, 92, 92, 0.589);
+        }
+        button {
+          width: 200px;
+          height: 30px;
+          border-radius: 12px;
+          background-color: rgba(95, 92, 92, 0.589);
+          border: none;
+        }
+      }
+    }
+  }
+  .patients-bottom {
+    width: 100%;
+    height: 100%;
+    padding: 0 15px;
+    display: grid;
+    grid-template-rows: 8% 92%;
+    .nav-patients {
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      background-color: var(--color-fond-container);
+      margin-top: 10px;
+      ul {
+        width: 90%;
+        padding: 0 10px;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 30% 20% 20% 15% 15%;
+        align-items: center;
+        li {
+          width: 80%;
+          height: 10px;
+          list-style: none;
+          background-color: rgba(95, 92, 92, 0.589);
+          border-radius: 200px;
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+    .container-all-patients {
+      width: 100%;
+      padding: 30px 0 10px 0;
+      min-height: 40px;
+      max-height: 440px;
+      overflow-y: auto;
+      .card-patient {
+        width: 100%;
+        height: 40px;
+        background-color: var(--color-fond-container);
+        border-radius: 12px;
+        margin-bottom: 20px;
+        padding: 0 10px;
+        display: flex;
+        align-items: center;
+        ul {
+          width: 98%;
+          height: 10px;
+          background-color: rgba(95, 92, 92, 0.589);
+          border-radius: 200px;
+        }
+      }
+    }
+  }
+}
+@keyframes skeleton {
+  to {
+    opacity: 0.6;
+  }
+}

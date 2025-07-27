@@ -1,0 +1,108 @@
+.layout-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  display: grid;
+  grid-template-columns: 13% 87%;
+  background-color: #ffffff;
+
+  .container-left {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-principal);
+  }
+
+  .container-rigth {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 8% 92%;
+    position: relative;
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 767px) {
+  .layout-container {
+    display: flex;
+    flex-direction: column-reverse;
+
+    .container-left {
+      height: 10%;
+      background-color: #eeeeee;
+      border-top-right-radius: 20px;
+      border-top-left-radius: 20px;
+    }
+
+    .container-rigth {
+      height: 90%;
+      grid-template-rows: 10% 90%;
+    }
+  }
+}
+
+.option-container {
+  position: absolute;
+  width: 193px;
+  height: 110px;
+  border-radius: 10px;
+  background-color: var(--color-fond-text-2);
+  box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.644);
+  right: 15px;
+  top: 160px;
+  transition: all 0.3s ease-out;
+  animation: visit 3000ms ease-in 0 alternate initial;
+
+  section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10px;
+
+    button {
+      width: 100%;
+      display: flex;
+      height: 40px;
+      align-items: center;
+      justify-content: center;
+      font-family: 'font-principal';
+      background-color: var(--color-fond-container);
+      color: var(--color-fond-text);
+      letter-spacing: 1.02px;
+      border: none;
+      border-radius: 10px;
+      transition: background all 300ms ease-in;
+
+      span {
+        margin-left: 10px;
+      }
+
+      &:hover {
+        background: var(--color-principal);
+        color: var(--color-fond-text-2);
+        cursor: pointer;
+        transform: scale(1.01);
+      }
+    }
+
+    .cancel:hover {
+      background: var(--color-cancel1);
+    }
+  }
+}
+
+@keyframes visit {
+  from {
+    transition: all 0.3s ease-out;
+    opacity: 0;
+    transform: translateY(-300px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0)
+  }
+}

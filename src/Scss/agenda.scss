@@ -1,0 +1,503 @@
+.agenda-container {
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    display: grid;
+    grid-template-rows: 8% 92%;
+    align-items: center;
+
+    .entete {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        p {
+            display: flex;
+            align-items: center;
+            font-family: 'font-principal';
+            font-size: 30px;
+            color: var(--color-fond-text);
+        }
+
+        button {
+            padding: 7px;
+            letter-spacing: 1.02px;
+            border: none;
+            background-color: var(--color-principal);
+            color: var(--color-fond-text-2);
+            font-family: 'font-principal';
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease-in;
+
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.002);
+                box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.205);
+            }
+        }
+    }
+
+    .body-container {
+        padding-top: 10px;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 40% 60%;
+        align-items: center;
+
+        .left {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-rows: 80% 20%;
+
+            .calandar-dynamic {
+                width: 100%;
+                height: 100%;
+
+                .wrapper {
+                    width: 95%;
+                    padding: 15px;
+                    border-radius: 15px;
+                    height: 100%;
+                    background-color: var(--color-fond-container);
+                    font-family: 'font-principal';
+
+                    header {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+
+                        .current-date {
+                            font-size: 1.45rem;
+                            font-weight: 500;
+                            color: var(--color-fond-text);
+                        }
+
+                        .icons {
+                            display: flex;
+
+                            span {
+                                height: 30px;
+                                width: 30px;
+                                margin: 0 1px;
+                                background-color: var(--color-principal);
+                                line-height: 30px;
+                                cursor: pointer;
+                                border-radius: 100%;
+                                margin-right: 5px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                text-align: center;
+                                color: var(--color-fond-text-2);
+                                transition: all 100ms ease-in;
+
+                                &:last-child {
+                                    margin-right: -5px;
+                                }
+
+                                &:hover {
+                                    background-color: var(--color-fond-text-2);
+                                    color: var(--color-principal);
+                                }
+                            }
+                        }
+                    }
+
+                    .calandar {
+                        padding-top: 20px;
+                        width: 100%;
+                        height: 100%;
+
+                        ul {
+                            display: flex;
+                            list-style: none;
+                            flex-wrap: wrap;
+                            text-align: center;
+
+                            li {
+                                width: calc(100% / 7);
+                                position: relative;
+                                color: var(--color-fond-text);
+                            }
+                        }
+
+                        /* Styles pour les jours avec des rendez-vous */
+                        .days li.has-appointment {
+                            position: relative;
+                            font-weight: 600;
+                            color: #007bff;
+                            background-color: rgba(0, 123, 255, 0.1);
+                            border-radius: 50%;
+                        }
+
+                        /* Ajouter un point indicateur pour les jours avec rendez-vous */
+                        .days li.has-appointment::after {
+                            content: '';
+                            position: absolute;
+                            bottom: 2px;
+                            right: 2px;
+                            width: 6px;
+                            height: 6px;
+                            background-color: #007bff;
+                            border-radius: 50%;
+                        }
+
+                        /* Style pour les jours avec rendez-vous mais inactifs (mois précédent/suivant) */
+                        .days li.inactive.has-appointment {
+                            color: #6c757d;
+                            background-color: rgba(108, 117, 125, 0.1);
+                        }
+
+                        .days li.inactive.has-appointment::after {
+                            background-color: #6c757d;
+                        }
+
+                        /* Style pour le jour actuel avec rendez-vous */
+                        .days li.active.has-appointment {
+                            background-color: #007bff;
+                            color: white;
+                            font-weight: 700;
+                        }
+
+                        .days li.active.has-appointment::after {
+                            background-color: white;
+                        }
+
+                        /* Animation hover pour les jours avec rendez-vous */
+                        .days li.has-appointment:hover {
+                            transform: scale(1.05);
+                            transition: transform 0.2s ease;
+                            cursor: pointer;
+                        }
+
+                        /* Animation pulse pour les jours avec rendez-vous */
+                        @keyframes pulse {
+                            0% {
+                                transform: scale(1);
+                            }
+
+                            50% {
+                                transform: scale(1.05);
+                            }
+
+                            100% {
+                                transform: scale(1);
+                            }
+                        }
+
+                        .days li.has-appointment {
+                            animation: pulse 2s infinite;
+                        }
+
+                        /* Désactiver l'animation pour les jours inactifs */
+                        .days li.inactive.has-appointment {
+                            animation: none;
+                        }
+
+                        .days {
+                            margin-bottom: 20px;
+                            cursor: pointer;
+
+                            .inactive {
+                                color: #aaa;
+                            }
+
+                            .active {
+                                color: var(--color-fond-text-2);
+
+                                &::before {
+                                    background-color: var(--color-principal);
+                                }
+                            }
+
+                            li {
+                                cursor: pointer;
+                                margin-top: 27px;
+                                z-index: 1;
+
+                                &::before {
+                                    position: absolute;
+                                    content: "";
+                                    height: 40px;
+                                    width: 40px;
+                                    top: 50%;
+                                    border-radius: 50%;
+                                    border: none;
+                                    left: 50%;
+                                    z-index: -1;
+                                    transform: translate(-50%, -50%);
+
+                                }
+
+                                &:hover::before {
+                                    background-color: var(--color-principal);
+                                    color: var(--color-fond-text-2);
+                                }
+                            }
+                        }
+
+                        .weeks {
+                            li {
+                                font-weight: 500;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .list-appointment {
+                width: 100%;
+                height: 100%;
+
+                .view-all-appointment {
+                    width: 95%;
+                    height: 60px;
+                    border-radius: 12px;
+                    background-color: var(--color-fond-container);
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-top: 20px;
+                    padding: 0 15px;
+                    color: var(--color-fond-text);
+
+                    button {
+                        border: none;
+                        border-radius: 100%;
+                        background-color: var(--color-principal);
+                        color: var(--color-fond-text-2);
+                        width: 35px;
+                        height: 35px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        transition: all 200ms ease-in-out;
+
+                        &:hover {
+                            background-color: var(--color-second);
+                            box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.192);
+                            cursor: pointer;
+                        }
+                    }
+
+                    .presc {
+                        display: flex;
+                        align-items: center;
+                        font-family: "font-principal";
+
+                        p {
+                            margin-left: 7px;
+                            font-size: 18px;
+                        }
+
+                        span {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: 30px;
+                            height: 30px;
+                            font-size: 14px;
+                            margin-left: 10px;
+                            background-color: var(--color-principal);
+                            border-radius: 100%;
+                            color: var(--color-fond-text-2);
+                        }
+                    }
+                }
+            }
+        }
+
+        .rigth {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-rows: 10% 90%;
+            padding: 0 10px 10px 10px;
+            // border: 1px solid;
+
+            .entetes {
+                width: 100%;
+                height: 100%;
+
+                p {
+                    display: flex;
+                    align-items: center;
+                    font-family: 'font-principal';
+                    font-size: 20px;
+                    color: var(--color-fond-text);
+
+                    span {
+                        margin-left: 5px;
+                    }
+                }
+
+            }
+
+            .container-list-actuel {
+                width: 100%;
+                height: 460px;
+                display: flex;
+                flex-direction: column;
+                // flex-wrap: wrap;
+                overflow-y: auto;
+
+                .no-appointments {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    font-family: 'font-principal';
+                    color: #6c757d;
+                    font-size: 20px;
+
+                    svg {
+                        width: 35px;
+                        height: 35px;
+                        margin-bottom: 15px;
+                    }
+                }
+
+                .agenda {
+                    width: 100%;
+                    height: 70px;
+                    border: none;
+                    border-radius: 12px;
+                    background-color: var(--color-fond-container);
+                    color: var(--color-fond-text);
+                    display: grid;
+                    grid-template-columns: 22% 32% 36% 10%;
+                    padding: 10px 0 10px 10px;
+                    margin-bottom: 20px;
+
+                    .info {
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        font-family: 'font-principal';
+
+                        section {
+                            display: flex;
+                            align-items: center;
+
+                            .circle {
+                                width: 10px;
+                                height: 10px;
+                                border: none;
+                                border-radius: 100%;
+                                background-color: var(--color-principal);
+                                margin-right: 10px;
+                            }
+                        }
+                    }
+
+                    .info1 {
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        // align-items: center;
+                        font-family: 'font-principal';
+                        justify-content: center;
+                        padding-left: 10px;
+
+                        h4 {
+                            display: flex;
+                            margin-bottom: 5px;
+
+                            span {
+                                margin-left: 2px;
+                            }
+                        }
+
+                        span {
+                            display: flex;
+                            font-size: 14px;
+                            align-items: center;
+                            margin-left: 2px;
+
+                            p {
+                                margin-left: 8px;
+                            }
+                        }
+                    }
+
+                    .btn {
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        button {
+                            padding: 5px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            border: none;
+                            border-radius: 50%;
+                            background-color: var(--color-principal);
+                            color: var(--color-fond-text-2);
+                            transition: all 100ms ease-in;
+
+                            &:hover {
+                                transform: scale(1.002);
+                                cursor: pointer;
+                            }
+                        }
+                    }
+
+                    .infos {
+                        width: 100%;
+                        height: 100%;
+                        display: grid;
+                        grid-template-columns: 30% 70%;
+                        align-items: center;
+                        justify-content: space-around;
+
+                        section {
+                            font-family: 'font-principal';
+                            margin-left: -20px;
+
+                            h4 {
+                                margin-bottom: 5px;
+                                font-size: 18px;
+                                letter-spacing: 1.02px;
+                                width: 100%;
+                                white-space: nowrap; //empeche le retour a la ligne
+                                overflow: hidden; //cache le contenu qui depasse
+                                text-overflow: ellipsis; //ajoute des points de suspension
+                                -webkit-text-overflow: ellipsis; //support des navigateur
+                                display: block; //tjr le mettre pour que ca marche
+                            }
+
+                            p {
+                                display: flex;
+                                align-items: center;
+
+                                span {
+                                    font-size: 14px;
+                                    margin-left: 5px;
+                                }
+
+                                svg {
+                                    margin-left: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,263 @@
+.containers-form-patients {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  backdrop-filter: blur(1px);
+  padding: 0 0 10px 0;
+  margin: 0;
+  background-color: rgba(22, 22, 22, 0.425);
+
+  .section-hospitalisation {
+    width: 40%;
+    height: 60%;
+    margin-right: 150px;
+    padding: 15px 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: var(--color-fond-container2);
+    display: flex;
+    flex-direction: column;
+    color: var(--color-fond-text);
+    font-family: "font-secondaire";
+    animation: visibles 300ms ease-in-out alternate;
+
+    p {
+      display: flex;
+      align-items: center;
+
+      span {
+        margin-left: 8px;
+        font-size: 22px;
+      }
+
+      margin-bottom: 20px;
+    }
+
+    form {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+
+      .section {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        .info {
+          width: 48%;
+        }
+      }
+
+      .info {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 70px;
+        margin-bottom: 15px;
+
+        label {
+          margin-bottom: 8px;
+        }
+
+        input {
+          font-family: "font-principal";
+          letter-spacing: 1.02px;
+          padding: 0 10px;
+          height: 55%;
+          width: 100%;
+          border-radius: 10px;
+          outline: none;
+          background-color: var(--color-fond-container);
+          border: none;
+        }
+      }
+
+      section {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .info {
+          width: 48%;
+        }
+      }
+
+      .btns {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        margin-top: 10px;
+
+        button {
+          padding: 10px 20px;
+          font-family: "font-principal";
+          letter-spacing: 1.01px;
+          border: none;
+          font-size: 14px;
+          display: flex;
+          align-items: center;
+          margin-left: 15px;
+          border-radius: 10px;
+          color: var(--color-fond-text-2);
+          background-color: var(--color-principal);
+          transition: all 300ms ease-in-out;
+
+          &:hover {
+            background-color: var(--color-second);
+            box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.192);
+            cursor: pointer;
+          }
+        }
+
+        .cancel {
+          background-color: var(--color-cancel);
+
+          &:hover {
+            background-color: #fa5344;
+          }
+        }
+      }
+    }
+  }
+
+  .section-operation {
+    width: 40%;
+    height: 100%;
+    margin-right: 150px;
+    padding: 15px 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: var(--color-fond-container2);
+    display: flex;
+    flex-direction: column;
+    color: var(--color-fond-text);
+    font-family: "font-secondaire";
+    animation: visibles 300ms ease-in-out alternate;
+
+    p {
+      display: flex;
+      align-items: center;
+
+      span {
+        margin-left: 8px;
+        font-size: 20px;
+      }
+
+      margin-bottom: 20px;
+    }
+
+    form {
+      overflow-y: auto;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+
+      section {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+
+        span {
+          font-size: 18px;
+          text-decoration: underline;
+          margin-bottom: 15px;
+        }
+
+        .info {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          height: 70px;
+          margin-bottom: 15px;
+
+          label {
+            margin-bottom: 8px;
+          }
+
+          input {
+            font-family: "font-principal";
+            letter-spacing: 1.02px;
+            padding: 0 10px;
+            height: 55%;
+            width: 100%;
+            border-radius: 10px;
+            outline: none;
+            background-color: var(--color-fond-container);
+            border: none;
+          }
+        }
+
+        .section {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-wrap: wrap;
+
+          .info {
+            width: 48%;
+          }
+        }
+      }
+
+      .btns {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        margin-top: 10px;
+
+        button {
+          padding: 10px 20px;
+          font-family: "font-principal";
+          letter-spacing: 1.01px;
+          border: none;
+          font-size: 14px;
+          display: flex;
+          align-items: center;
+          margin-left: 15px;
+          border-radius: 10px;
+          color: var(--color-fond-text-2);
+          background-color: var(--color-principal);
+          transition: all 300ms ease-in-out;
+
+          &:hover {
+            background-color: var(--color-second);
+            box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.192);
+            cursor: pointer;
+          }
+        }
+
+        .cancel {
+          background-color: var(--color-cancel);
+
+          &:hover {
+            background-color: #fa5344;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes visibles {
+  from {
+    opacity: 0;
+    transform: translateY(-200px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

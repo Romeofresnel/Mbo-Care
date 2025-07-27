@@ -1,0 +1,313 @@
+.container-login {
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  overflow: hidden;
+  font-family: "font-principal";
+  background: linear-gradient(to bottom, #ffffff, #06d6a0 60%);
+  display: grid;
+  grid-template-rows: 10% 90%;
+
+  .nav-login {
+    width: 100%;
+    min-width: 100%;
+    height: 100%;
+    color: #424242;
+    z-index: 2;
+
+    .icon {
+      display: none;
+    }
+
+    nav {
+      display: flex;
+      padding: 10px 20px;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      letter-spacing: 1.2;
+
+      .container-structure {
+        display: flex;
+        height: 100%;
+        align-items: center;
+
+        .img {
+          width: 50px;
+          height: 50px;
+          border: none;
+          border-radius: 100%;
+          margin-right: 10px;
+          background: url("/iup.webp") center/cover;
+        }
+      }
+    }
+  }
+
+  .contain-form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    form {
+      background-color: #ffffff;
+      width: 750px;
+      z-index: 2;
+      min-width: 150px;
+      height: auto;
+      min-height: 460px;
+      border-radius: 20px;
+      display: grid;
+      grid-template-columns: 50% 50%;
+      color: #424242;
+      box-shadow: 0 4px 6px #000000a3;
+
+      .form-left {
+        width: 100%;
+        height: 100%;
+        background: url(/medecin1.jpg) center/cover;
+        border-bottom-left-radius: 20px;
+        border-top-left-radius: 20px;
+
+        .survol {
+          width: 100%;
+          height: 100%;
+          border-bottom-left-radius: 20px;
+          border-top-left-radius: 20px;
+          color: #ffffff;
+          font-family: "font-form";
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          background: linear-gradient(to bottom, #ffffff00, #100f0f6f 95%);
+
+          span {
+            font-size: 30px;
+            width: 220px;
+            text-align: center;
+            line-height: 1;
+            margin-bottom: 30px;
+          }
+
+          p {
+            width: 350px;
+            text-align: center;
+          }
+        }
+      }
+
+      .form-rigth {
+        width: 100%;
+        height: 100%;
+        padding: 15px 15px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+
+        .top-form {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          h1 {
+            font-size: 25px;
+            margin-bottom: 8px;
+          }
+
+          button {
+            padding: 12px 24px;
+            font-family: "font-principal";
+            border: none;
+            background-color: var(--color-principal);
+            color: #ffffff;
+            font-size: 15px;
+            border-radius: 12px;
+            transition: 200ms all;
+            margin-bottom: 8px;
+
+            &:hover {
+              background-color: #56c596;
+              cursor: pointer;
+              box-shadow: 0 4px 6px rgba(88, 175, 142, 0.2);
+            }
+          }
+
+          p {
+            font-size: 13px;
+            letter-spacing: 1.3px;
+          }
+        }
+
+        .middle-form {
+          width: 100%;
+          display: flex;
+          margin-top: 20px;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          .container-input {
+            width: 100%;
+            height: 50px;
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: 90% 10%;
+            align-items: center;
+            background-color: #efeded;
+            border-radius: 12px;
+
+            input {
+              height: 40px;
+              background: transparent;
+              border: none;
+              outline: none;
+              padding-left: 15px;
+              color: #424242;
+              font-size: 15px;
+              letter-spacing: 1.5px;
+              font-family: "font-secondaire";
+            }
+          }
+        }
+
+        .bottom-form {
+          position: relative;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-top: 30px;
+
+          button {
+            padding: 12px 24px;
+            font-family: "font-principal";
+            border: none;
+            background-color: var(--color-principal);
+            color: #ffffff;
+            font-size: 15px;
+            border-radius: 12px;
+            transition: 200ms all;
+
+            &:hover {
+              background-color: #56c596;
+              cursor: pointer;
+              box-shadow: 0 4px 6px rgba(88, 175, 142, 0.2);
+            }
+          }
+
+          a {
+            color: var(--color-principal);
+            font-size: 13px;
+            margin-top: 40px;
+            margin-left: -190px;
+            transition: 200ms all;
+
+            &:hover {
+              color: #56c596;
+              cursor: pointer;
+              text-shadow: 0 4px 6px rgba(88, 175, 142, 0.2);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .circle {
+    position: absolute;
+    width: 300px;
+    height: 295px;
+    border: none;
+    border-radius: 100%;
+    background-color: #fafafa9c;
+    z-index: 1;
+  }
+
+  .one {
+    bottom: -110px;
+    left: -80px;
+  }
+
+  .two {
+    right: -80px;
+    top: -110px;
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 767px) {
+  .container-login {
+    .nav-login {
+      .icon {
+        display: initial;
+      }
+
+      nav {
+        font-size: 10px;
+
+        .container-structure {
+          .img {
+            width: 40px;
+            height: 40px;
+          }
+        }
+
+        h3 {
+          display: none;
+        }
+      }
+    }
+
+    .contain-form {
+      form {
+        padding: 10px 10px;
+        width: 90%;
+        height: auto;
+        display: initial;
+        box-shadow: 0 4px 6px #000000a3;
+
+        // margin-top: -70px;
+        .form-left {
+          display: none;
+        }
+
+        .form-rigth {
+          .top-form {
+            h1 {
+              font-size: 22px;
+              margin-bottom: 10px;
+            }
+
+            p {
+              font-size: 11px;
+              letter-spacing: 1.3px;
+            }
+          }
+
+          .bottom-form {
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            a {
+              margin-left: 0;
+              margin-top: 20px;
+            }
+          }
+        }
+      }
+    }
+
+    .circle {
+      display: none;
+    }
+  }
+}

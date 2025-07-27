@@ -1,0 +1,57 @@
+:root {
+  --color-principal: #06d6a0;
+  --color-second: #56c596;
+  --color-fond-text: #424242;
+  --color-fond-text-2: #ffffff;
+  --color-fond-container: #f4f4f4;
+  --color-fond-container2: #ffffff;
+  --color-cancel: #ff8a80;
+  --color-cancel1: #e75d50;
+}
+
+@font-face {
+  font-family: "font-principal";
+  src: url(./assets/Poppine/Poppins-Regular.ttf);
+}
+
+@font-face {
+  font-family: "font-secondaire";
+  src: url(./assets/Inter_18pt-Regular.ttf);
+}
+
+@font-face {
+  font-family: "font-form";
+  src: url(./assets/PlaywriteUSModern-VariableFont_wght.ttf);
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  margin-left: 5px;
+  display: initial;
+}
+
+::-webkit-scrollbar-button {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 10px;
+  max-width: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+
+  padding: 2px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
