@@ -9,6 +9,10 @@
   --color-cancel1: #e75d50;
 }
 
+link {
+  border-radius: 50%;
+}
+
 @font-face {
   font-family: "font-principal";
   src: url(./assets/Poppine/Poppins-Regular.ttf);
